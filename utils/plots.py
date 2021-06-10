@@ -189,9 +189,10 @@ def plot_one_box(x, im, color=(128, 128, 128), label=None, line_thickness=3):
     # print(pan_no)
     # print(d_o_b)
     extracted_info={'type': label.split(' ')[0], 'fields': [{'name': name}, {'number': pan_no},{"father's_name": fathers_name},{'DOB': d_o_b}]}
+    
+    #final json file
     extracted_info_json = json.dumps(extracted_info, indent=4)
     print(extracted_info_json)
-    #final json file
     return extracted_info_json
 
 
