@@ -126,9 +126,9 @@ def plot_one_box(x, im, color=(128, 128, 128), label=None, line_thickness=3):
             # image=tess_image
             tess_image = image[int(image.shape[0] / 4):int(image.shape[0] / 5) + int(image.shape[0] / 1.3),
                     :int(image.shape[1] *(2/ 3))]
-            cv2.imshow('ss',tess_image)
-            cv2.waitKey(0)
-            cv2.destroyAllWindows()
+            #cv2.imshow('ss',tess_image)
+            #cv2.waitKey(0)
+            #cv2.destroyAllWindows()
             d = pytesseract.image_to_data(tess_image, output_type=Output.DICT, config=tessdata_dir_config, lang='en')
 
             t=pytesseract.image_to_string(tess_image,lang='en',config=tessdata_dir_config)
@@ -188,7 +188,12 @@ def plot_one_box(x, im, color=(128, 128, 128), label=None, line_thickness=3):
     # print(fathers_name)
     # print(pan_no)
     # print(d_o_b)
-    print({'type': label.split(' ')[0], 'fields': [{'name': name}, {'number': pan_no},{"father's_name": fathers_name},{'DOB': d_o_b}]})
+    extracted_info={'type': label.split(' ')[0], 'fields': [{'name': name}, {'number': pan_no},{"father's_name": fathers_name},{'DOB': d_o_b}]}
+    extracted_info_json = json.dumps(extracted_info, indent=4)
+    print(extracted_info_json)
+    #final json file
+    return extracted_info_json
+
 
 def plot_one_box_PIL(box, im, color=(128, 128, 128), label=None, line_thickness=None):
     # Plots one bounding box on image 'im' using PIL
