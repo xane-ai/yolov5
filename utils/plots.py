@@ -135,6 +135,7 @@ def plot_one_box(x, im, color=(128, 128, 128), label=None, line_thickness=3):
             t=pytesseract.image_to_string(tess_image,lang='en',config=tessdata_dir_config)
             t=t.split('\n')
             t=[t_info.upper() for t_info in t if t_info!=' ' and t_info!='' and len(t_info)>3]
+            #print(t)
             name=None
             fathers_name=None
             pan_no=None
@@ -222,7 +223,7 @@ def plot_one_box(x, im, color=(128, 128, 128), label=None, line_thickness=3):
             # print('random text')
             # print(t)
             t=[t_info.upper() for t_info in t if t_info!=' ' and t_info!='' and len(t_info)>3]
-            print(t)
+            #print(t)
             # fathers_name=None
             gender=None
             aadhar_no=None
