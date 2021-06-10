@@ -188,6 +188,7 @@ def plot_one_box(x, im, color=(128, 128, 128), label=None, line_thickness=3):
             extracted_info={'type': label.split(' ')[0], 'fields': [{'name': name}, {'pan_number': pan_no},{"father's_name": fathers_name},{'DOB': d_o_b}]}
             extracted_info_json = json.dumps(extracted_info, indent=4)
             print(extracted_info_json)
+            return extracted_info_json
 
 
         if 'aadhar_card_front' in label:
@@ -281,6 +282,7 @@ def plot_one_box(x, im, color=(128, 128, 128), label=None, line_thickness=3):
             extracted_info={'type': label.split(' ')[0], 'fields': [{'name': name}, {'aadhar_number': aadhar_no},{"gender": gender},{'DOB': d_o_b}]}
             extracted_info_json = json.dumps(extracted_info, indent=4)
             print(extracted_info_json)
+            return extracted_info_json
 
 
 def plot_one_box_PIL(box, im, color=(128, 128, 128), label=None, line_thickness=None):
